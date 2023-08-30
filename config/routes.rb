@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  get 'lists/new'
+  get 'books/new'
+  post 'books' => 'books#create'
   get '/top' => 'homes#top'
-  post 'lists' => 'lists#create'
-  get 'lists' => 'lists#index'
-  
+  get 'books' => 'bookss#index'
+  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
