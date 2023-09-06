@@ -4,9 +4,9 @@ class BooksController < ApplicationController
   end
   
   def create
-    book = Book.new(book_params)   # 1.$2. データを受け取り新規登録するためのインスタンス作成
-    book.save                      #3.     データをデータベースに保存するためのsaveメソッド実行
-    redirect_to '/top'             #4.     トップ画面へリダイレクト
+    @book = Book.new(book_params)   # 1.$2. データを受け取り新規登録するためのインスタンス作成
+    @book.save                      #3.     データをデータベースに保存するためのsaveメソッド実行
+    redirect_to book_path(@book.id)             #4.     トップ画面へリダイレクト
   end
   
   def index
@@ -22,7 +22,7 @@ class BooksController < ApplicationController
   
   private
   #ストロングパラメータ
-  def list_params
-    params.repuire(:book).permit(:book, :body)
+  def book_params
+    params.require(:book).permit(:title, :body)
   end
 end

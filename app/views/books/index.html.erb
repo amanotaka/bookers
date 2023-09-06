@@ -1,11 +1,17 @@
 <h1>Books</h1>
 
-<%= @books.each do |book| %>
+<% @books.each do |book| %>
 
-  <p>タイトル</p>
-  <span><%= book.title %></span>
+<p>タイトル</p>
+<span><%= book.title %></span>
+  <span>
+    <%= link_to book.title, book_path(list.id) %>
+  </span>
 
  <p>本文</p>
  <span><%= book.body %></span>
+  <span>
+    <%= link_to book.body, book_path(list.id) %>
+  </span>
  
 <% end %>
